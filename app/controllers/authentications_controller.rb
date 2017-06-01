@@ -9,12 +9,18 @@ class AuthenticationsController < ApplicationController
   end
 
   def login
+    user = User.find_by_email(params[:email])
+    if user && user.authenticate(params[:password])
+      render json: user, status: :ok
+    else
+      render json: { errors: ["Invalid login credentials."]}, status: 401
+    end
   end
 
   private
-    def user_params
-      hash = {}
-      hash.merge! params.slice(:username, :email, :password, :password_confirmation).permit!
-      hash
-    end
+  def user_params
+    hash = {}
+    hash.merge! params.slice(:username, :email, :password, :password_confirmation).permit!
+    hash
+  end
 end
