@@ -70,7 +70,8 @@ p1.tasks.create!([{
 
 m1 = p1.milestones.create!({
   title: "Hit MVP",
-  day: 7
+  day: 7,
+  completed: false
   })
 
 m1.tasks << p1.tasks
