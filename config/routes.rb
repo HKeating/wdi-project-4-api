@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
 
+  resources :milestones
   scope :api do
     resources :tasks
     resources :projects

@@ -10,10 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170602140517) do
+ActiveRecord::Schema.define(version: 20170602152117) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "milestones", force: :cascade do |t|
+    t.string "title"
+    t.integer "day"
+    t.bigint "tasks_id"
+    t.bigint "project_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["project_id"], name: "index_milestones_on_project_id"
+    t.index ["tasks_id"], name: "index_milestones_on_tasks_id"
+  end
 
   create_table "projects", force: :cascade do |t|
     t.string "title"
@@ -42,6 +53,7 @@ ActiveRecord::Schema.define(version: 20170602140517) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.boolean "completed"
+    t.string "milestone_id"
     t.index ["project_id"], name: "index_tasks_on_project_id"
     t.index ["user_id"], name: "index_tasks_on_user_id"
   end
@@ -62,6 +74,8 @@ ActiveRecord::Schema.define(version: 20170602140517) do
     t.index ["projects_id"], name: "index_users_on_projects_id"
   end
 
+  add_foreign_key "milestones", "projects"
+  add_foreign_key "milestones", "tasks", column: "tasks_id"
   add_foreign_key "projects", "tasks", column: "tasks_id"
   add_foreign_key "projects", "users"
   add_foreign_key "tasks", "projects"

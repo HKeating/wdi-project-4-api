@@ -56,6 +56,12 @@ p1.tasks.create!({
   completed: false
   })
 
+p1.milestones.create!({
+  title: "Hit MVP",
+  day: 7
+  })
+
+
   # t.text "description"
   # t.integer "start_day"
   # t.integer "due_day"
