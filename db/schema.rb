@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170602123316) do
+ActiveRecord::Schema.define(version: 20170602140517) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,7 +23,14 @@ ActiveRecord::Schema.define(version: 20170602123316) do
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "tasks_id"
+    t.index ["tasks_id"], name: "index_projects_on_tasks_id"
     t.index ["user_id"], name: "index_projects_on_user_id"
+  end
+
+  create_table "projects_users", id: false, force: :cascade do |t|
+    t.bigint "project_id", null: false
+    t.bigint "user_id", null: false
   end
 
   create_table "tasks", force: :cascade do |t|
@@ -34,8 +41,14 @@ ActiveRecord::Schema.define(version: 20170602123316) do
     t.bigint "project_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "completed"
     t.index ["project_id"], name: "index_tasks_on_project_id"
     t.index ["user_id"], name: "index_tasks_on_user_id"
+  end
+
+  create_table "tasks_users", id: false, force: :cascade do |t|
+    t.bigint "task_id", null: false
+    t.bigint "user_id", null: false
   end
 
   create_table "users", force: :cascade do |t|
@@ -45,12 +58,13 @@ ActiveRecord::Schema.define(version: 20170602123316) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.text "image"
-    t.bigint "project_id"
-    t.index ["project_id"], name: "index_users_on_project_id"
+    t.bigint "projects_id"
+    t.index ["projects_id"], name: "index_users_on_projects_id"
   end
 
+  add_foreign_key "projects", "tasks", column: "tasks_id"
   add_foreign_key "projects", "users"
   add_foreign_key "tasks", "projects"
   add_foreign_key "tasks", "users"
-  add_foreign_key "users", "projects"
+  add_foreign_key "users", "projects", column: "projects_id"
 end

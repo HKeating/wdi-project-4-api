@@ -37,6 +37,8 @@ Models:
 
   - has_many :projects
 
+
+
 - Project
   - title
   - start date
@@ -53,3 +55,17 @@ Models:
   - due day
 
   - has_many :users
+
+
+
+  One to many
+  has_many -- belongs_to
+
+  Many to many
+  has-and_belongs_to_many -- has-and_belongs_to_many
+
+  one to one
+  has_one -- has_one
+
+  one to many in a specific way
+  has_many :through

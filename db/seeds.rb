@@ -33,21 +33,34 @@ u3 = User.create!({
   password_confirmation: "password"
   })
 
-u1.projects.create!([{
+p1 = Project.create!({
   title: "wdi-project-4",
   start_date: "now",
   duration: "12 days",
-  image: "http://fillmurray.com/350/350"
-  },
-  {
+  image: "http://fillmurray.com/350/350",
+  user_id: u1.id
+  })
+
+p2 = Project.create!({
   title: "test",
   start_date: "sometime",
   duration: 6,
-  image: "http://fillmurray.com/350/350"
-  }])
+  image: "http://fillmurray.com/350/350",
+  user_id: u2.id
+  })
 
+p1.tasks.create!({
+  description: "do stuff",
+  start_day: 1,
+  due_day: 5,
+  completed: false
+  })
 
-#
-# p1 = Project.first
-#
-# p1.users << [u2, u3]
+  # t.text "description"
+  # t.integer "start_day"
+  # t.integer "due_day"
+  # t.bigint "user_id"
+  # t.bigint "project_id"
+  # t.datetime "created_at", null: false
+  # t.datetime "updated_at", null: false
+  # t.boolean "completed"
