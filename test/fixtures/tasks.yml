@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  description: MyText
+  start_day: 1
+  due_day: 1
+  user: one
+  project: one
+
+two:
+  description: MyText
+  start_day: 1
+  due_day: 1
+  user: two
+  project: two

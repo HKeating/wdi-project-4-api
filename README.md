@@ -41,6 +41,7 @@ Models:
   - title
   - start date
   - duration
+  - image
 
   - belongs_to :user
   - has_many :users
