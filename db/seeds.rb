@@ -49,17 +49,32 @@ p2 = Project.create!({
   user_id: u2.id
   })
 
-p1.tasks.create!({
-  description: "do stuff",
+p1.tasks.create!([{
+  description: "back-end",
   start_day: 1,
+  due_day: 3,
+  completed: false
+},
+  {
+  description: "front-end",
+  start_day: 2,
   due_day: 5,
   completed: false
-  })
+},
+  {
+  description: "do stuff",
+  start_day: 4,
+  due_day: 6,
+  completed: false
+  }])
 
-p1.milestones.create!({
+m1 = p1.milestones.create!({
   title: "Hit MVP",
   day: 7
   })
+
+m1.tasks << p1.tasks
+
 
 
   # t.text "description"
