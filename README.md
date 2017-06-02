@@ -22,3 +22,33 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
+
+
+
+### NOTES
+
+Models:
+
+- User
+  - username
+  - email
+  - image
+  - password_digest
+
+  - has_many :projects
+
+- Project
+  - title
+  - start date
+  - duration
+
+  - belongs_to :user
+  - has_many :users
+  - has_many :tasks
+
+- Task
+  - title
+  - description
+  - due day
+
+  - has_many :users
