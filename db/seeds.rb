@@ -35,15 +35,15 @@ u3 = User.create!({
 
 p1 = Project.create!({
   title: "wdi-project-4",
-  start_date: "now",
-  duration: "12 days",
+  start_date: Time.now,
+  duration: 12,
   image: "http://fillmurray.com/350/350",
   user_id: u1.id
   })
 
 p2 = Project.create!({
   title: "test",
-  start_date: "sometime",
+  start_date: Time.now,
   duration: 6,
   image: "http://fillmurray.com/350/350",
   user_id: u2.id
