@@ -71,6 +71,13 @@ t3 = Task.create!({
   completed: false,
   project_id: p1.id
 })
+t4 = Task.create!({
+  description: "Try to complete project 4 whilst also watching a film and enjoying memes on the internet. We need more focus. And Coffee. Coffee is good. Also chocolate. Or maybe a croissant. I might go to the shop in a bit.",
+  start_day: 1,
+  due_day: 3,
+  completed: false,
+  project_id: p1.id
+  })
 
 m1 = p1.milestones.create!({
   title: "Hit MVP",
@@ -82,6 +89,8 @@ m1.tasks << p1.tasks
 t1.users << [u1, u2]
 t2.users << [u2, u3]
 t3.users << [u1, u2, u3]
+t4.users << [u1, u3]
+p1.users << [u1, u2]
 
 
 
