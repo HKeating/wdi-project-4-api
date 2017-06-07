@@ -58,34 +58,58 @@ t1 = Task.create!({
   project_id: p1.id
 })
 t2 = Task.create!({
-  description: "front-end",
+  description: "task day 5",
   start_day: 2,
   due_day: 5,
   completed: false,
   project_id: p1.id
 })
 t3 = Task.create!({
-  description: "do stuff",
+  description: "task day 6",
   start_day: 4,
   due_day: 6,
   completed: false,
   project_id: p1.id
 })
 t4 = Task.create!({
-  description: "Try to complete project 4 whilst also watching a film and enjoying memes on the internet. We need more focus. And Coffee. Coffee is good. Also chocolate. Or maybe a croissant. I might go to the shop in a bit.",
+  description: "task day 3",
   start_day: 1,
   due_day: 3,
   completed: false,
   project_id: p1.id
   })
+t5 = Task.create!({
+  description: "task day 10",
+  start_day: 3,
+  due_day: 10,
+  completed: false,
+  project_id: p1.id
+  })
+t6 = Task.create!({
+  description: "task day 12",
+  start_day: 3,
+  due_day: 12,
+  completed: false,
+  project_id: p1.id
+  })
 
 m1 = p1.milestones.create!({
-  title: "Hit MVP",
+  title: "mstone day 7",
   day: 7,
   completed: false
   })
+m2 = p1.milestones.create!({
+  title: "mstone day 3",
+  day: 3,
+  completed: false
+  })
+m3 = p1.milestones.create!({
+  title: "mstone day 10",
+  day: 10,
+  completed: false
+  })
 
-m1.tasks << p1.tasks
+# m1.tasks << p1.tasks
 t1.users << [u1, u2]
 t2.users << [u2, u3]
 t3.users << [u1, u2, u3]
