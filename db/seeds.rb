@@ -55,6 +55,7 @@ t1 = Task.create!({
   start_day: 1,
   due_day: 3,
   completed: false,
+  blocked: false,
   project_id: p1.id
 })
 t2 = Task.create!({
@@ -62,6 +63,7 @@ t2 = Task.create!({
   start_day: 2,
   due_day: 5,
   completed: false,
+  blocked: false,
   project_id: p1.id
 })
 t3 = Task.create!({
@@ -69,6 +71,7 @@ t3 = Task.create!({
   start_day: 4,
   due_day: 6,
   completed: false,
+  blocked: false,
   project_id: p1.id
 })
 t4 = Task.create!({
@@ -76,6 +79,7 @@ t4 = Task.create!({
   start_day: 1,
   due_day: 3,
   completed: false,
+  blocked: false,
   project_id: p1.id
   })
 t5 = Task.create!({
@@ -83,6 +87,7 @@ t5 = Task.create!({
   start_day: 3,
   due_day: 10,
   completed: false,
+  blocked: false,
   project_id: p1.id
   })
 t6 = Task.create!({
@@ -90,6 +95,7 @@ t6 = Task.create!({
   start_day: 3,
   due_day: 12,
   completed: false,
+  blocked: false,
   project_id: p1.id
   })
 
