@@ -4,4 +4,5 @@ class ProjectSerializer < ActiveModel::Serializer
   has_many :users
   has_many :tasks
   has_many :milestones
+  has_many :logs
 end
