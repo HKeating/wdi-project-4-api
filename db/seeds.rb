@@ -8,6 +8,9 @@
 
 User.destroy_all
 Project.destroy_all
+Task.destroy_all
+Log.destroy_all
+Milestone.destroy_all
 
 u1 = User.create!({
   username: "horace",
@@ -35,8 +38,9 @@ u3 = User.create!({
 
 p1 = Project.create!({
   title: "wdi-project-4",
-  start_date: Time.now,
-  duration: 12,
+  start_date: Date.parse('25-05-2017'),
+  end_date: Date.parse('20-06-2017'),
+  duration: 26,
   image: "http://fillmurray.com/350/350",
   user_id: u1.id
   })
@@ -44,9 +48,19 @@ p1 = Project.create!({
 p2 = Project.create!({
   title: "test",
   start_date: Time.now,
+  end_date: Date.parse('14-06-2017'),
   duration: 6,
   image: "http://fillmurray.com/350/350",
   user_id: u2.id
+  })
+
+p3 = Project.create!({
+  title: "Testing the date stuff",
+  start_date: Date.parse('01-06-2017'),
+  end_date: Date.parse('16-06-2017'),
+  duration: 15,
+  image: "http://fillmurray.com/350/350",
+  user_id: u1.id
   })
 
 
@@ -120,15 +134,5 @@ t1.users << [u1, u2]
 t2.users << [u2, u3]
 t3.users << [u1, u2, u3]
 t4.users << [u1, u3]
-p1.users << [u1, u2]
-
-
-
-  # t.text "description"
-  # t.integer "start_day"
-  # t.integer "due_day"
-  # t.bigint "user_id"
-  # t.bigint "project_id"
-  # t.datetime "created_at", null: false
-  # t.datetime "updated_at", null: false
-  # t.boolean "completed"
+# p1.users << [u1, u2]
+u1.projects << [p1,p3]
