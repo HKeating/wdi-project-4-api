@@ -1,5 +1,5 @@
 class ProjectSerializer < ActiveModel::Serializer
-  attributes :id, :title, :start_date, :end_date, :duration, :image
+  attributes :id, :title, :start_date, :end_date, :duration, :image, :logs
   has_one :user
   has_many :users
   has_many :tasks
