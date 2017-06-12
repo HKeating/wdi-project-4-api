@@ -70,6 +70,7 @@ t1 = Task.create!({
   due_day: 3,
   completed: false,
   blocked: false,
+  color: "EF6F6C",
   project_id: p1.id
 })
 t2 = Task.create!({
@@ -78,6 +79,7 @@ t2 = Task.create!({
   due_day: 5,
   completed: false,
   blocked: false,
+  color: "0074D9",
   project_id: p1.id
 })
 t3 = Task.create!({
@@ -86,6 +88,7 @@ t3 = Task.create!({
   due_day: 6,
   completed: false,
   blocked: false,
+  color: "b10dc9",
   project_id: p1.id
 })
 t4 = Task.create!({
@@ -94,22 +97,25 @@ t4 = Task.create!({
   due_day: 3,
   completed: false,
   blocked: false,
+  color: "AAAAAA",
   project_id: p1.id
   })
 t5 = Task.create!({
-  description: "task day 10",
+  description: "task day 23",
   start_day: 3,
-  due_day: 10,
+  due_day: 23,
   completed: false,
   blocked: false,
+  color: "AAAAAA",
   project_id: p1.id
   })
 t6 = Task.create!({
-  description: "task day 12",
+  description: "task day 22",
   start_day: 3,
-  due_day: 12,
+  due_day: 22,
   completed: false,
   blocked: false,
+  color: "AAAAAA",
   project_id: p1.id
   })
 
