@@ -134,6 +134,11 @@ m3 = p1.milestones.create!({
   day: 10,
   completed: false
   })
+m4 = p1.milestones.create!({
+  title: "mstone day 12",
+  day: 12,
+  completed: false
+  })
 
 # m1.tasks << p1.tasks
 t1.users << [u1, u2]
